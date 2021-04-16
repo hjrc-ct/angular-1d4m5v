@@ -29,7 +29,7 @@ export class SnackBarOverviewExample implements OnInit {
     if ("serviceWorker" in navigator && "PushManager" in window) {
       console.log("Service Worker and Push is supported");
       console.log("try to register sw ");
-      let sw = navigator.serviceWorker.register("/src/app/sw.js").then(
+      let sw = navigator.serviceWorker.register("sw.js").then(
         function(registration) {
           console.log("Service worker registration succeeded:", registration);
         },
