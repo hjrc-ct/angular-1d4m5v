@@ -1,0 +1,33 @@
+<mat-form-field>
+  <mat-label>Message</mat-label>
+  <input matInput value="Disco party!" #message />
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Action</mat-label>
+  <input matInput value="Dance" #action />
+</mat-form-field>
+
+<button mat-stroked-button (click)="openSnackBar(message.value, action.value)">
+  Show snack-bar
+</button>
+
+<br />
+<button mat-stroked-button (click)="subscribeBPA()">Subscribe to BPA</button>
+<br />
+
+<script>
+  addEventListener("load", async () => {
+      console.log("on load -> attempt to register BPA sw ");
+    });
+
+    // start
+    window.onload = event => {
+      console.log("on load -> The page has fully loaded");
+    };
+    // end
+</script>
+
+<!-- Copyright 2020 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
