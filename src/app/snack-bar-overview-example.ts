@@ -4,6 +4,8 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
+import {SwPush} from '@angular/service-worker';
+
 import { enableProdMode } from "@angular/core";
 
 enableProdMode();
@@ -19,7 +21,8 @@ enableProdMode();
 export class SnackBarOverviewExample implements OnInit {
   title: "snack bar overview example - title goes here";
 
-  constructor(private _snackBar: MatSnackBar) {
+  constructor(private _snackBar: MatSnackBar,
+              private swPush: SwPush ) {
     console.log("in constructor - SnackBarOverviewExample ");
   }
 
@@ -49,6 +52,13 @@ export class SnackBarOverviewExample implements OnInit {
   async subscribeBPA() {
     console.log("in subscribeBPA function async ... ");
     let sw = await navigator.serviceWorker.ready;
+
+    this.swPush.requestSubscription({
+       serverPublicKey: "BBlw0TujfU6PVbweYIULgv5nLRcwOhvgM5fjdzeLWEXqjHsKvshTk10Q7VFsS9G29y-dovhm5bwz3Vwh5k0tRNI"
+    }).then( sub => {
+      console.log("SW subscription object available -> ", sub);
+    }).catch( err => console.error("SW subscription failed with error -> ", err));
+
     let push = await sw.pushManager.subscribe({
       userVisibleOnly: true,
       // TODO - put publich key for BPA app here

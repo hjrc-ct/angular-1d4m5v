@@ -25,9 +25,10 @@
     "angular-in-memory-web-api": "~0.11.0",
     "moment": "^2.29.1",
     "rxjs": "^6.6.6",
+    "service-worker": "0.0.0",
     "tslib": "^2.1.0",
-    "zone.js": "^0.11.4",
-    "web-push": "^3.4.4"
+    "web-push": "^3.4.4",
+    "zone.js": "^0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1102.4",
